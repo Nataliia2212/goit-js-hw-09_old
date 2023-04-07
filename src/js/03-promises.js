@@ -42,5 +42,3 @@ function onFormSubmit(event) {
     position += 1;
   }
 }
-
-console.log('ok')
