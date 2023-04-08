@@ -29,7 +29,7 @@ function onFormSubmit(event) {
   let position = 1;
   let delay = Number(refs.delay.value);
   
-  for (i = 0; i < Number(refs.amount.value); i += 1) {
+  for (let i = 0; i < Number(refs.amount.value); i += 1) {
     createPromise(position, delay)
       .then(({ position, delay }) => {
         Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`);
