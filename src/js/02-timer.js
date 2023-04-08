@@ -63,7 +63,7 @@ function onBtnStart() {
     setInterval(() => {
         const dateNow = Date.now()
 
-        lastTime = selectedData - dateNow;
+        const lastTime = selectedData - dateNow;
        
         const {days, hours, minutes, seconds} =  convertMs(lastTime)
         
