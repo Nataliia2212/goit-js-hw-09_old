@@ -14,6 +14,7 @@ const refs = {
 refs.start.setAttribute("disabled", "");
 
 const curentTime = Date.now()
+
 let selectedData = null;
 
 const options = {
@@ -60,11 +61,16 @@ function onInputFocus() {
 
 function onBtnStart() {
     
-    setInterval(() => {
+    const intervalID = setInterval(() => {
+     
         const dateNow = Date.now()
-
+ 
         const lastTime = selectedData - dateNow;
-       
+        
+        if (lastTime < 0) {
+            clearInterval(intervalID);
+            return
+        }
         const {days, hours, minutes, seconds} =  convertMs(lastTime)
         
         refs.days.textContent = addLeadingZero(days);
@@ -72,6 +78,8 @@ function onBtnStart() {
         refs.minutes.textContent = addLeadingZero(minutes);
         refs.seconds.textContent = addLeadingZero(seconds);
     }, 1000)
+
+      
 }
 
 function addLeadingZero(value) {
